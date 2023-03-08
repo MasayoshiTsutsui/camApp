@@ -8,7 +8,7 @@ if __name__ == "__main__":
     cap = cv2.VideoCapture(0)
 
     # OpenCVに用意されている顔認識するためのxmlファイルのパス
-    cascade_path = "./haarcascade_frontalface_alt.xml"
+    cascade_path = "../haarcascade_frontalface_alt.xml"
     # カスケード分類器の特徴量を取得する
     cascade = cv2.CascadeClassifier(cascade_path)
     
