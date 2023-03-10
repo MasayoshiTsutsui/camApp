@@ -3,7 +3,9 @@
 
 int main() {
     cv::CascadeClassifier face_cascade;
-    face_cascade.load("../../haarcascade_frontalface_alt.xml");
+    // opencv's path may be different in your env.
+    // Most articles say opencv is in /usr/local/Cellar/opencv
+    face_cascade.load("/opt/homebrew/Cellar/opencv/4.7.0_2/share/opencv4/haarcascades/haarcascade_eye_tree_eyeglasses.xml");
 
     cv::VideoCapture cap(0);
     if (!cap.isOpened()) {
@@ -11,7 +13,8 @@ int main() {
         return -1;
     }
 
-    while (true) {
+    for (size_t i = 0; i < 10000; i++)
+    {
         cv::Mat frame;
         cap >> frame;
         if (frame.empty()) {
