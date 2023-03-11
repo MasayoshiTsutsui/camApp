@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Main
+# Target rules for targets named camapp
 
 # Build rule for target.
-Main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Main
-.PHONY : Main
+camapp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 camapp
+.PHONY : camapp
 
 # fast build rule for target.
-Main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/build
-.PHONY : Main/fast
+camapp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camapp.dir/build.make CMakeFiles/camapp.dir/build
+.PHONY : camapp/fast
 
 capture.o: capture.cpp.o
 .PHONY : capture.o
 
 # target to build an object file
 capture.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/capture.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camapp.dir/build.make CMakeFiles/camapp.dir/capture.cpp.o
 .PHONY : capture.cpp.o
 
 capture.i: capture.cpp.i
@@ -142,7 +142,7 @@ capture.i: capture.cpp.i
 
 # target to preprocess a source file
 capture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/capture.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camapp.dir/build.make CMakeFiles/camapp.dir/capture.cpp.i
 .PHONY : capture.cpp.i
 
 capture.s: capture.cpp.s
@@ -150,7 +150,7 @@ capture.s: capture.cpp.s
 
 # target to generate assembly for a file
 capture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Main.dir/build.make CMakeFiles/Main.dir/capture.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/camapp.dir/build.make CMakeFiles/camapp.dir/capture.cpp.s
 .PHONY : capture.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Main"
+	@echo "... camapp"
 	@echo "... capture.o"
 	@echo "... capture.i"
 	@echo "... capture.s"

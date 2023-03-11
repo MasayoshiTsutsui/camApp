@@ -1,5 +1,8 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/face.hpp>
+#include <boost/version.hpp>
+#include <boost/timer/timer.hpp>
+
 
 int main() {
     cv::CascadeClassifier face_cascade;
@@ -13,17 +16,32 @@ int main() {
         return -1;
     }
 
-    for (size_t i = 0; i < 10000; i++)
+    boost::timer::cpu_timer timer;
+
+    int maxItr = 10;
+
+    for (size_t i = 0; i < maxItr; i++)
     {
         cv::Mat frame;
+
+        timer.start();
         cap >> frame;
+        timer.stop();
+
         if (frame.empty()) {
             break;
         }
 
+        std::cout << "Get Frame : " << timer.format() << std::endl;
+
         // 顔の検出
         std::vector<cv::Rect> faces;
+
+        timer.start();
         face_cascade.detectMultiScale(frame, faces, 1.3, 5);
+        timer.stop();
+
+        std::cout << "Detect Face : " << timer.format() << std::endl;
 
         // 検出された顔に四角形を描画
         for (const auto& face : faces) {
